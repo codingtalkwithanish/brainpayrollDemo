@@ -25,7 +25,7 @@ if __name__ == "__main__":
     
     #llm = ChatOpenAI(temperature=0, model_name="gpt-3.5-turbo")
 
-    llm=ChatOllama(model="llama3")
+    llm=ChatOllama(model="llama3",locals=True)
 
     chain = summary_prompt_template | llm | StrOutputParser()
     
@@ -33,4 +33,4 @@ if __name__ == "__main__":
         print(chain.invoke({'information':information}))
 
     while True:
-        query_llm(input("please ask your question"))
+        query_llm(input("please ask your question:- "))
